@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Exclusive VIP football predictions — premium daily match analysis and correct score picks.">
+<meta property="og:title" content="VIP Match Hub">
+<meta property="og:description" content="Exclusive VIP football predictions — premium daily match analysis.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
+<title>VIP Match Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Poppins,sans-serif;background:radial-gradient(circle at 50% 0%,#1c1a14,#000 65%);color:#fff;position:relative;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;background-image:radial-gradient(rgba(212,175,55,.55) 1px,transparent 1px);background-size:3px 3px;animation:drift 30s linear infinite}
+@keyframes drift{from{background-position:0 0}to{background-position:0 -400px}}
+.wrap{max-width:700px;margin:auto;padding:18px;position:relative;z-index:1}
+.hero{text-align:center;padding:25px 25px 10px;color:#f2d478;font-family:'Playfair Display',serif;font-size:34px;font-weight:800;letter-spacing:.5px}
+.card{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(212,175,55,.5);border-radius:20px;padding:20px;box-shadow:0 0 25px rgba(212,175,55,.35);animation:f .7s}
+.badge{display:inline-block;position:relative;overflow:hidden;background:linear-gradient(90deg,#d4af37,#ffd700);color:#000;padding:6px 14px;border-radius:20px;font-weight:700;letter-spacing:.5px}
+.badge::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.75),transparent);animation:shimmer 2.8s ease-in-out infinite}
+@keyframes shimmer{0%{left:-60%}100%{left:130%}}
+h2,h3,p{text-align:center}
+h2{font-family:'Playfair Display',serif;font-weight:700}
+.pick{margin:20px 0;padding:18px;border-radius:15px;background:linear-gradient(135deg,#d4af37,#8a6a00);color:#000;font-family:'Playfair Display',serif;font-size:30px;font-weight:700;position:relative;overflow:hidden}
+.pick::after{content:'';position:absolute;top:0;left:-60%;width:35%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);animation:shimmer 3.6s ease-in-out infinite}
+#market{font-family:Poppins,sans-serif;font-size:14px;letter-spacing:1px;text-transform:uppercase;opacity:.75}
+.countdown{font-size:13px;letter-spacing:1px;color:#f2d478;opacity:.85;margin-top:-6px}
+button{width:100%;padding:14px;border:none;border-radius:12px;background:linear-gradient(90deg,#ffd700,#b8860b);font-weight:700;cursor:pointer;color:#000;margin-top:10px;transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(212,175,55,.4)}
+input,select{width:100%;margin:8px 0;padding:12px;border-radius:10px;border:1px solid rgba(212,175,55,.4);background:#111;color:#fff}
+#adminPanel{display:none;margin-top:20px;padding-top:15px;border-top:1px dashed rgba(212,175,55,.4)}
+#adminCorner{position:fixed;bottom:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.45;transition:opacity .2s,transform .2s;z-index:500}
+#adminCorner:hover{opacity:1;transform:scale(1.08)}
+#adminCorner svg{width:16px;height:16px;fill:#d4af37}
+@keyframes f{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* Gate Overlay & Payment Styling */
+.gate-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:center;z-index:999;padding:15px}
+.gate-card{width:100%;max-width:450px;background:#111;border:1px solid #d4af37;border-radius:20px;padding:25px;box-shadow:0 0 30px rgba(212,175,55,0.4);text-align:center}
+.mpesa-box{background:rgba(212,175,55,0.1);border:1px solid #d4af37;border-radius:12px;padding:15px;margin:15px 0;text-align:left;font-size:14px;line-height:1.6}
+.mpesa-title{color:#ffd700;font-weight:700;margin-bottom:10px;text-align:center;font-size:16px}
+.highlight{color:#ffd700;font-weight:700}
+.error-msg{color:#ff4d4d;font-size:14px;margin-top:10px;display:none}
+.step-row{display:flex;align-items:flex-start;gap:10px;margin:10px 0}
+.step-num{flex:none;width:20px;height:20px;border-radius:50%;background:linear-gradient(90deg,#d4af37,#ffd700);color:#000;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.step-text{flex:1}
+.copy-btn{display:inline-block;margin-left:8px;padding:2px 9px;font-size:11px;font-weight:700;border-radius:8px;border:1px solid rgba(212,175,55,.5);background:rgba(212,175,55,.12);color:#ffd700;cursor:pointer}
+.copy-btn:hover{background:rgba(212,175,55,.25)}
+</style>
+</head>
+<body>
+
+<!-- VIP Password / Payment Access Gate -->
+<div id="vipGate" class="gate-overlay">
+  <div class="gate-card">
+    <span class="badge">🔒 VIP ACCESS REQUIRED</span>
+    <h2 style="color:#d4af37;margin-top:15px;">Enter VIP Password</h2>
+    
+    <div id="passwordSection">
+      <input type="password" id="vipPasswordInput" placeholder="Enter Access Password...">
+      <button onclick="checkPassword()">Unlock VIP Match</button>
+      <div id="errorMsg" class="error-msg">❌ Incorrect password. Please check payment options below.</div>
+    </div>
+
+    <div id="mpesaSection" style="display:none;">
+      <div class="mpesa-box">
+        <div class="mpesa-title">📲 M-PESA PAYMENT INSTRUCTIONS</div>
+        <div class="step-row"><div class="step-num">1</div><div class="step-text">Go to M-Pesa on your phone.</div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text">Select <strong>Send Money</strong>.</div></div>
+        <div class="step-row"><div class="step-num">3</div><div class="step-text">Enter Number: <span class="highlight" id="mpesaNumber">0708890627</span><button class="copy-btn" onclick="copyNumber()">Copy</button></div></div>
+        <div class="step-row"><div class="step-num">4</div><div class="step-text">Enter Amount: <span class="highlight" id="mpesaAmountDisplay">KSh 1,000</span></div></div>
+        <div class="step-row"><div class="step-num">5</div><div class="step-text">Complete transaction & enter password sent to you above.</div></div>
+      </div>
+      <button onclick="resetPasswordForm()">Try Password Again</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero">🏆 VIP MATCH HUB</div>
+  <div class="card">
+    <p><span class="badge">VIP PREMIUM</span></p>
+    <h3 id="country">🇦🇷 Argentina</h3>
+    <p id="league">Argentina Nacional B</p>
+    <h2 id="teams">San Telmo vs CA San Miguel</h2>
+    <div class="pick">
+      <div id="market">Correct Score</div>
+      <div id="prediction">0 - 0</div>
+    </div>
+    <p id="date">02/08/2026</p>
+    <p class="countdown" id="countdown"></p>
+    
+    <div id="adminPanel">
+      <h3>Admin Dashboard</h3>
+      <label style="font-size:12px;color:#d4af37">VIP Password Settings:</label>
+      <input id="vipPassConfigInput" placeholder="New VIP Password (Default: 2026)">
+      <label style="font-size:12px;color:#d4af37">Payment Amount Settings:</label>
+      <input id="priceInput" placeholder="VIP Price (e.g. 1000)">
+      
+      <label style="font-size:12px;color:#d4af37">Match Settings:</label>
+      <input id="countryInput" placeholder="Country">
+      <input id="leagueInput" placeholder="League">
+      <input id="homeInput" placeholder="Home Team">
+      <input id="awayInput" placeholder="Away Team">
+      <select id="marketInput">
+        <option>Correct Score</option>
+        <option>Over 2.5</option>
+        <option>BTTS</option>
+        <option>1X2</option>
+      </select>
+      <input id="predictionInput" placeholder="Prediction">
+      <input id="dateInput" placeholder="Date (DD/MM/YYYY)">
+      <input id="timeInput" placeholder="Kickoff Time (HH:MM, 24hr)">
+      <button onclick="save()">Update Match & Gate Config</button>
+      <button onclick="logoutAdmin()" style="background:transparent;border:1px solid rgba(212,175,55,.4);color:#d4af37">Log Out</button>
+    </div>
+  </div>
+</div>
+
+<div id="adminCorner" onclick="login()" title="Admin">
+  <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.04,0.64,0.09,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+</div>
+
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js';
+import { getDatabase, ref, get, set } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyAVy-VKV5_Lgg1kIY-H49uNS9DwPkdKOD8',
+  authDomain: 'vip-match-hub.firebaseapp.com',
+  databaseURL: 'https://vip-match-hub-default-rtdb.firebaseio.com',
+  projectId: 'vip-match-hub',
+  storageBucket: 'vip-match-hub.firebasestorage.app',
+  messagingSenderId: '956386477990',
+  appId: '1:956386477990:web:40e2888eed6a17f9d7f167'
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
+let currentVipPassword = "2026"; // Initial default fallback password
+let countdownTimer = null;
+
+// Reflect real admin sign-in state (persists across reloads)
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    adminPanel.style.display = 'block';
+    loadAdminInputs();
+  } else {
+    adminPanel.style.display = 'none';
+  }
+});
+
+function startCountdown(dateStr, timeStr) {
+  clearInterval(countdownTimer);
+  const el = document.getElementById('countdown');
+  if (!dateStr) { el.textContent = ''; return; }
+  const [d, m, y] = dateStr.split('/').map(Number);
+  const [hh, mm] = (timeStr || '00:00').split(':').map(Number);
+  if (!d || !m || !y) { el.textContent = ''; return; }
+  const kickoff = new Date(y, m - 1, d, hh || 0, mm || 0);
+
+  const tick = () => {
+    const diff = kickoff - new Date();
+    if (isNaN(kickoff.getTime())) { el.textContent = ''; return; }
+    if (diff <= 0) { el.textContent = '⚽ Kickoff in progress'; clearInterval(countdownTimer); return; }
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    el.textContent = `⏳ Kicks off in ${days > 0 ? days + 'd ' : ''}${hrs}h ${mins}m ${secs}s`;
+  };
+  tick();
+  countdownTimer = setInterval(tick, 1000);
+}
+
+window.copyNumber = () => {
+  navigator.clipboard.writeText(document.getElementById('mpesaNumber').textContent.trim());
+  const btn = event.target;
+  const orig = btn.textContent;
+  btn.textContent = 'Copied';
+  setTimeout(() => btn.textContent = orig, 1500);
+};
+
+// Check browser session storage on page load
+if (sessionStorage.getItem('vip_authenticated') === 'true') {
+  document.getElementById('vipGate').style.display = 'none';
+}
+
+async function load() {
+  // Load match data
+  const matchSnap = await get(ref(db, 'matches/latest'));
+  if (matchSnap.exists()) {
+    const d = matchSnap.val();
+    country.textContent = d.country || '';
+    league.textContent = d.league || '';
+    teams.textContent = (d.home || '') + ' vs ' + (d.away || '');
+    market.textContent = d.market || '';
+    prediction.textContent = d.prediction || '';
+    date.textContent = d.date || '';
+    startCountdown(d.date, d.time);
+  }
+
+  // Load VIP Config from Firebase
+  const configSnap = await get(ref(db, 'config'));
+  if (configSnap.exists()) {
+    const c = configSnap.val();
+    if (c.vipPassword) currentVipPassword = c.vipPassword;
+    if (c.price) {
+      document.getElementById('mpesaAmountDisplay').textContent = `KSh ${Number(c.price).toLocaleString()}`;
+    }
+  }
+}
+
+window.checkPassword = () => {
+  const enteredPass = document.getElementById('vipPasswordInput').value.trim();
+  if (enteredPass === currentVipPassword) {
+    sessionStorage.setItem('vip_authenticated', 'true');
+    document.getElementById('vipGate').style.display = 'none';
+  } else {
+    document.getElementById('errorMsg').style.display = 'block';
+    document.getElementById('mpesaSection').style.display = 'block';
+  }
+};
+
+window.resetPasswordForm = () => {
+  document.getElementById('errorMsg').style.display = 'none';
+  document.getElementById('mpesaSection').style.display = 'none';
+  document.getElementById('vipPasswordInput').value = '';
+};
+
+window.login = () => {
+  const email = prompt('Admin email');
+  if (!email) return;
+  const password = prompt('Password');
+  if (!password) return;
+  signInWithEmailAndPassword(auth, email, password)
+    .catch(() => alert('Wrong login'));
+  // On success, onAuthStateChanged above shows the panel automatically.
+};
+
+window.logoutAdmin = () => {
+  auth.signOut();
+};
+
+async function loadAdminInputs() {
+  const configSnap = await get(ref(db, 'config'));
+  if (configSnap.exists()) {
+    const c = configSnap.val();
+    vipPassConfigInput.value = c.vipPassword || '2026';
+    priceInput.value = c.price || '1000';
+  }
+  const matchSnap = await get(ref(db, 'matches/latest'));
+  if (matchSnap.exists()) {
+    const d = matchSnap.val();
+    countryInput.value = d.country || '';
+    leagueInput.value = d.league || '';
+    homeInput.value = d.home || '';
+    awayInput.value = d.away || '';
+    marketInput.value = d.market || 'Correct Score';
+    predictionInput.value = d.prediction || '';
+    dateInput.value = d.date || '';
+    timeInput.value = d.time || '';
+  }
+}
+
+window.save = async () => {
+  const matchData = {
+    country: countryInput.value,
+    league: leagueInput.value,
+    home: homeInput.value,
+    away: awayInput.value,
+    market: marketInput.value,
+    prediction: predictionInput.value,
+    date: dateInput.value,
+    time: timeInput.value
+  };
+
+  const configData = {
+    vipPassword: vipPassConfigInput.value.trim() || '2026',
+    price: priceInput.value.trim() || '1000'
+  };
+
+  await set(ref(db, 'matches/latest'), matchData);
+  await set(ref(db, 'config'), configData);
+  
+  load();
+  alert('Match & VIP Config Updated!');
+};
+
+load();
+</script>
+</body>
+</html>
