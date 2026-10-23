@@ -10,800 +10,47 @@
 <meta property="og:description" content="Premium football predictions and match intelligence.">
 <meta property="og:type" content="website">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
+<!-- Updated Favicon to a Trophy SVG -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff9f1c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9H4.5a2.5 2.5 0 0 1 0-5H6'%3E%3C/path%3E%3Cpath d='M18 9h1.5a2.5 2.5 0 0 0 0-5H18'%3E%3C/path%3E%3Cpath d='M4 22h16'%3E%3C/path%3E%3Cpath d='M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22'%3E%3C/path%3E%3Cpath d='M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22'%3E%3C/path%3E%3Cpath d='M18 2H6v7a6 6 0 0 0 12 0V2Z'%3E%3C/path%3E%3C/svg%3E">
 
 <title>VIP Match Hub</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  box-sizing:border-box;
-}
-
-html{
-  background:#060914;
-  color-scheme:dark;
-}
-
-body{
-  margin:0;
-  min-height:100vh;
-  overflow-x:hidden;
-  font-family:Poppins,sans-serif;
-  color:#fff;
-  background:
-    radial-gradient(circle at 50% -10%,rgba(47,123,255,.20),transparent 36%),
-    radial-gradient(circle at 0% 100%,rgba(255,159,28,.08),transparent 35%),
-    #060914;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:
-    linear-gradient(
-      135deg,
-      transparent 0%,
-      rgba(255,159,28,.02) 45%,
-      transparent 55%
-    );
-}
-
-button,
-input,
-select{
-  font-family:Poppins,sans-serif;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none !important;
-}
-
-.page{
-  position:relative;
-  z-index:2;
-}
-
-.wrap{
-  width:100%;
-  max-width:720px;
-  margin:0 auto;
-  padding:20px 16px 45px;
-}
-
 /* =========================================================
-   LANDING PAGE
-========================================================= */
-
-#landingPage{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:22px;
-}
-
-.landing-card{
-  width:100%;
-  max-width:500px;
-  text-align:center;
-  padding:42px 25px 30px;
-  border-radius:28px;
-  background:
-    linear-gradient(145deg,#0d1530,#060914);
-  border:1px solid rgba(59,130,246,.38);
-  box-shadow:
-    0 30px 90px rgba(0,0,0,.7),
-    0 0 50px rgba(59,130,246,.06);
-}
-
-.hero-icon{
-  width:76px;
-  height:76px;
-  margin:0 auto 20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:22px;
-  font-size:37px;
-  background:linear-gradient(145deg,#101c3d,#060914);
-  border:1px solid rgba(59,130,246,.55);
-  box-shadow:
-    0 0 0 7px rgba(59,130,246,.035),
-    0 15px 40px rgba(59,130,246,.12);
-}
-
-.hero-title{
-  margin:0;
-  font-family:'Playfair Display',serif;
-  font-size:38px;
-  line-height:1.1;
-  font-weight:800;
-  letter-spacing:.5px;
-  background:linear-gradient(110deg,#4cc3ff 0%,#2f7bff 38%,#ff9f1c 72%,#ff6a1a 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.hero-subtitle{
-  margin:11px 0 0;
-  color:#888;
-  font-size:11px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
-
-.landing-line{
-  width:80px;
-  height:1px;
-  margin:25px auto;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #d4af37,
-    transparent
-  );
-}
-
-.landing-description{
-  margin:0 auto 27px;
-  max-width:360px;
-  color:#777;
-  font-size:12px;
-  line-height:1.7;
-}
-
-.gold-btn{
-  width:100%;
-  min-height:52px;
-  border:0;
-  border-radius:13px;
-  padding:14px 18px;
-  color:#060914;
-  background:linear-gradient(135deg,#2f7bff 0%,#7c4dff 52%,#ff8a1f 100%);
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:1px;
-  box-shadow:0 10px 30px rgba(59,130,246,.15);
-}
-
-.gold-btn:active{
-  transform:scale(.985);
-}
-
-/* =========================================================
-   ACCESS SELECTOR
-========================================================= */
-
-#accessPage{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:22px;
-}
-
-.access-card{
-  width:100%;
-  max-width:520px;
-  padding:30px 20px 25px;
-  border-radius:26px;
-  background:linear-gradient(145deg,#0d1530,#060914);
-  border:1px solid rgba(59,130,246,.35);
-  box-shadow:0 30px 80px rgba(0,0,0,.65);
-}
-
-.access-header{
-  text-align:center;
-  margin-bottom:24px;
-}
-
-.access-header h2{
-  margin:0;
-  font-family:'Playfair Display',serif;
-  color:#6cc4ff;
-  font-size:27px;
-}
-
-.access-header p{
-  margin:7px 0 0;
-  color:#777;
-  font-size:11px;
-}
-
-.access-option{
-  width:100%;
-  min-height:78px;
-  margin:10px 0;
-  padding:15px 17px;
-  display:flex;
-  align-items:center;
-  gap:15px;
-  text-align:left;
-  border-radius:17px;
-  border:1px solid rgba(59,130,246,.23);
-  background:rgba(255,255,255,.025);
-  color:#fff;
-  transition:.15s ease;
-}
-
-.access-option:hover{
-  border-color:rgba(59,130,246,.55);
-  background:rgba(59,130,246,.07);
-}
-
-.option-icon{
-  width:47px;
-  height:47px;
-  flex:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:13px;
-  background:rgba(59,130,246,.09);
-  border:1px solid rgba(59,130,246,.22);
-  font-size:21px;
-}
-
-.option-text{
-  flex:1;
-}
-
-.option-title{
-  display:block;
-  color:#6cc4ff;
-  font-size:14px;
-  font-weight:800;
-  letter-spacing:.5px;
-}
-
-.option-description{
-  display:block;
-  margin-top:3px;
-  color:#777;
-  font-size:10px;
-}
-
-.option-arrow{
-  color:#d4af37;
-  font-size:20px;
-}
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.hero{
-  text-align:center;
-  padding:12px 10px 22px;
-}
-
-.hero-small{
-  width:55px;
-  height:55px;
-  margin:0 auto 11px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:17px;
-  font-size:26px;
-  background:linear-gradient(145deg,#101c3d,#060914);
-  border:1px solid rgba(59,130,246,.5);
-}
-
-.hero-small-title{
-  margin:0;
-  font-family:'Playfair Display',serif;
-  font-size:31px;
-  font-weight:800;
-  background:linear-gradient(110deg,#4cc3ff 0%,#2f7bff 38%,#ff9f1c 72%,#ff6a1a 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.hero-small-subtitle{
-  margin:7px 0 0;
-  color:#777;
-  font-size:10px;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-}
-
-/* =========================================================
-   CARDS
-========================================================= */
-
-.card{
-  position:relative;
-  overflow:hidden;
-  padding:24px 18px 22px;
-  border-radius:24px;
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.065),
-    rgba(255,255,255,.018)
-  );
-  border:1px solid rgba(59,130,246,.30);
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.55),
-    inset 0 1px 0 rgba(255,255,255,.05);
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:12%;
-  right:12%;
-  height:1px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(108,196,255,.8),
-    transparent
-  );
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  padding:7px 13px;
-  border-radius:999px;
-  color:#060914;
-  background:linear-gradient(135deg,#2f7bff 0%,#7c4dff 52%,#ff8a1f 100%);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
-}
-
-/* =========================================================
-   VIP MATCH
-========================================================= */
-
-.match-header{
-  text-align:center;
-  padding:5px 0 2px;
-}
-
-.country{
-  margin:15px 0 2px;
-  font-size:13px;
-  font-weight:600;
-  color:#ffa62b;
-}
-
-.league{
-  margin:0;
-  font-size:11px;
-  color:#777;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-}
-
-.teams{
-  margin:15px 0 0;
-  font-family:'Playfair Display',serif;
-  font-size:23px;
-  line-height:1.3;
-  font-weight:700;
-  color:#fff;
-}
-
-.pick{
-  position:relative;
-  overflow:hidden;
-  margin:22px 0 16px;
-  padding:20px 14px;
-  border-radius:18px;
-  text-align:center;
-  background:linear-gradient(
-    145deg,
-    rgba(59,130,246,.20),
-    rgba(59,130,246,.045)
-  );
-  border:1px solid rgba(59,130,246,.45);
-}
-
-.pick::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:1px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(108,196,255,.8),
-    transparent
-  );
-}
-
-.market{
-  font-size:10px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#8fb4e8;
-  margin-bottom:5px;
-}
-
-.prediction{
-  font-family:'Playfair Display',serif;
-  font-size:42px;
-  line-height:1;
-  font-weight:800;
-  color:#ffa62b;
-  text-shadow:0 0 22px rgba(255,159,28,.30);
-}
-
-.match-info{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:5px;
-}
-
-.date{
-  margin:0;
-  font-size:12px;
-  color:#aaa;
-}
-
-.countdown{
-  min-height:18px;
-  margin:0;
-  color:#d9bd59;
-  font-size:11px;
-}
-
-/* =========================================================
-   VIP PASSWORD
-========================================================= */
-
-#vipPasswordPage{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
-
-.gate-card{
-  width:100%;
-  max-width:430px;
-  padding:27px 21px 22px;
-  text-align:center;
-  border-radius:24px;
-  background:linear-gradient(145deg,#0d1530,#060914);
-  border:1px solid rgba(59,130,246,.48);
-  box-shadow:
-    0 30px 90px rgba(0,0,0,.75),
-    0 0 45px rgba(59,130,246,.08);
-}
-
-.gate-title{
-  margin:17px 0 5px;
-  font-family:'Playfair Display',serif;
-  font-size:25px;
-  color:#6cc4ff;
-}
-
-.gate-description{
-  margin:0 0 17px;
-  color:#777;
-  font-size:11px;
-  line-height:1.6;
-}
-
-#vipPasswordInput{
-  width:100%;
-  height:50px;
-  padding:0 13px;
-  text-align:center;
-  border-radius:11px;
-  border:1px solid rgba(59,130,246,.25);
-  outline:none;
-  background:#0d0d0d;
-  color:#fff;
-  font-size:13px;
-}
-
-#vipPasswordInput:focus{
-  border-color:rgba(59,130,246,.65);
-  box-shadow:0 0 0 3px rgba(59,130,246,.07);
-}
-
-.error-msg{
-  display:none;
-  margin-top:10px;
-  color:#ff6262;
-  font-size:11px;
-}
-
-/* =========================================================
-   M-PESA
-========================================================= */
-
-.mpesa-box{
-  margin:18px 0;
-  padding:16px;
-  text-align:left;
-  border-radius:15px;
-  background:rgba(59,130,246,.055);
-  border:1px solid rgba(59,130,246,.23);
-}
-
-.mpesa-title{
-  margin-bottom:14px;
-  text-align:center;
-  color:#ffa62b;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:1px;
-}
-
-.step-row{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  margin:11px 0;
-  font-size:12px;
-  line-height:1.5;
-  color:#bbb;
-}
-
-.step-num{
-  flex:none;
-  width:21px;
-  height:21px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:linear-gradient(135deg,#4cc3ff,#2f7bff);
-  color:#000;
-  font-size:10px;
-  font-weight:800;
-}
-
-.step-text{
-  flex:1;
-}
-
-.highlight{
-  color:#ffa62b;
-  font-weight:700;
-}
-
-.copy-btn{
-  width:auto;
-  min-height:25px;
-  margin:0 0 0 5px;
-  padding:3px 8px;
-  border-radius:7px;
-  background:rgba(59,130,246,.08);
-  border:1px solid rgba(59,130,246,.3);
-  color:#ffa62b;
-  font-size:9px;
-  box-shadow:none;
-}
-
-/* =========================================================
-   ADMIN LOGIN
-========================================================= */
-
-#adminPage{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
-
-.admin-login{
-  width:100%;
-  max-width:430px;
-  padding:28px 20px;
-  border-radius:24px;
-  background:linear-gradient(145deg,#0d1530,#060914);
-  border:1px solid rgba(59,130,246,.4);
-  box-shadow:0 30px 80px rgba(0,0,0,.7);
-}
-
-.admin-login h2{
-  margin:15px 0 5px;
-  text-align:center;
-  font-family:'Playfair Display',serif;
-  color:#6cc4ff;
-}
-
-.admin-login p{
-  margin:0 0 20px;
-  text-align:center;
-  color:#777;
-  font-size:11px;
-}
-
-/* =========================================================
-   ADMIN DASHBOARD
-========================================================= */
-
-#adminDashboard{
-  display:none;
-}
-
-.admin-title{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin:0 0 17px;
-  font-family:'Playfair Display',serif;
-  font-size:20px;
-  color:#6cc4ff;
-}
-
-.form-group{
-  margin-bottom:13px;
-}
-
-.form-label{
-  display:block;
-  margin-bottom:6px;
-  color:#bca85c;
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-
-.form-input,
-select{
-  width:100%;
-  height:46px;
-  padding:0 13px;
-  border-radius:11px;
-  border:1px solid rgba(59,130,246,.22);
-  outline:none;
-  background:#0d0d0d;
-  color:#fff;
-  font-size:13px;
-}
-
-.form-input:focus,
-select:focus{
-  border-color:rgba(59,130,246,.65);
-  box-shadow:0 0 0 3px rgba(59,130,246,.07);
-}
-
-.secondary-btn{
-  width:100%;
-  min-height:46px;
-  margin-top:9px;
-  padding:12px 15px;
-  border-radius:11px;
-  background:transparent;
-  border:1px solid rgba(59,130,246,.25);
-  color:#d9bd59;
-  font-size:13px;
-  font-weight:700;
-}
-
-/* =========================================================
-   BACK BUTTON
-========================================================= */
-
-.back-btn{
-  width:auto;
-  min-height:36px;
-  margin:0 0 15px;
-  padding:8px 13px;
-  border-radius:9px;
-  background:rgba(59,130,246,.06);
-  border:1px solid rgba(59,130,246,.22);
-  color:#8fb4e8;
-  font-size:10px;
-}
-
-/* =========================================================
-   ADMIN CORNER
-========================================================= */
-
-#adminCorner{
-  position:fixed;
-  right:14px;
-  bottom:14px;
-  width:38px;
-  height:38px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:100;
-  border-radius:50%;
-  background:rgba(10,10,10,.8);
-  border:1px solid rgba(59,130,246,.20);
-  opacity:.25;
-  cursor:pointer;
-}
-
-#adminCorner svg{
-  width:17px;
-  height:17px;
-  fill:#d4af37;
-}
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:480px){
-
-  .hero-title{
-    font-size:31px;
-  }
-
-  .landing-card{
-    padding:35px 19px 25px;
-  }
-
-  .teams{
-    font-size:20px;
-  }
-
-  .prediction{
-    font-size:38px;
-  }
-
-  .card{
-    padding:21px 14px 18px;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,
-  *::before,
-  *::after{
-    animation:none !important;
-    transition:none !important;
-  }
-}
-
-
-/* =========================================================
-   VIP MATCH HUB — PREMIUM FINISH
-   Visual-only enhancement: preserves existing page flow,
-   Firebase wiring, IDs, and JavaScript interactions.
+   GLOBAL VARIABLES & RESET
 ========================================================= */
 :root {
-  --premium-bg: #060914;
-  --premium-panel: #0b1124;
-  --premium-panel-soft: #10182f;
-  --premium-gold: #ff9f1c;
-  --premium-gold-bright: #6cc4ff;
-  --premium-muted: #8d949d;
-  --premium-line: rgba(76,140,255,.26);
-  --premium-radius: 22px;
+  --bg-base: #060914;
+  --bg-panel: #0b1124;
+  --accent-blue: #4cc3ff;
+  --accent-blue-dark: #2f7bff;
+  --accent-gold: #ff9f1c;
+  --accent-gold-bright: #ffb52e;
+  --text-main: #f4f5f6;
+  --text-muted: #8d949d;
+  --border-light: rgba(76,140,255,.26);
+  --radius-lg: 24px;
+  --radius-md: 16px;
 }
 
+* { box-sizing: border-box; }
+
 html {
-  background: var(--premium-bg);
+  background: var(--bg-base);
   color-scheme: dark;
   scroll-behavior: smooth;
 }
 
 body {
-  color: #f4f5f6;
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-main);
   background:
     radial-gradient(ellipse at 50% -16%, rgba(47,123,255,.20), transparent 44%),
     radial-gradient(ellipse at 100% 62%, rgba(255,159,28,.08), transparent 40%),
@@ -813,311 +60,382 @@ body {
 }
 
 body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   opacity: .55;
   background-image:
     linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: linear-gradient(to bottom, black, transparent 80%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 80%);
 }
 
-button, input, select {
-  -webkit-tap-highlight-color: transparent;
-}
-
-button {
-  transition: transform .18s ease, border-color .18s ease,
-              background .18s ease, box-shadow .18s ease, filter .18s ease;
-}
-
+button, input, select { font-family: 'Poppins', sans-serif; }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; transition: all .2s ease; }
 button:focus-visible, input:focus-visible, select:focus-visible {
-  outline: 2px solid var(--premium-gold-bright);
+  outline: 2px solid var(--accent-gold);
   outline-offset: 3px;
 }
 
+.hidden { display: none !important; }
+.page { position: relative; z-index: 2; }
+
 .wrap {
+  width: 100%;
   max-width: 760px;
-  padding-top: max(24px, env(safe-area-inset-top));
-  padding-bottom: max(42px, env(safe-area-inset-bottom));
+  margin: 0 auto;
+  padding: max(24px, env(safe-area-inset-top)) 16px max(45px, env(safe-area-inset-bottom));
+}
+
+/* =========================================================
+   SVG ICON UTILITY
+========================================================= */
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  vertical-align: middle;
+}
+.icon-lg { width: 32px; height: 32px; }
+.icon-gold { stroke: var(--accent-gold); }
+.icon-blue { stroke: var(--accent-blue); }
+.icon-dark { stroke: #000; }
+
+/* =========================================================
+   LANDING PAGE & AUTH CARDS
+========================================================= */
+#landingPage, #accessPage, #vipPasswordPage, #adminPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
 }
 
 .landing-card, .access-card, .gate-card, .admin-login {
   position: relative;
-  isolation: isolate;
-  background:
-    linear-gradient(145deg, rgba(17,24,46,.97), rgba(7,10,22,.98) 70%),
-    var(--premium-panel);
-  border: 1px solid var(--premium-line);
-  box-shadow:
-    0 28px 80px rgba(0,0,0,.52),
-    inset 0 1px 0 rgba(255,255,255,.055);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  padding: 42px 28px 30px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, rgba(17,24,46,.97), rgba(7,10,22,.98) 70%);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 30px 90px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.055);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-}
-
-.landing-card::after, .access-card::after, .gate-card::after,
-.admin-login::after {
-  content: "";
-  position: absolute;
-  inset: 9px;
-  border: 1px solid rgba(255,255,255,.035);
-  border-radius: inherit;
-  pointer-events: none;
-  z-index: -1;
+  animation: premium-rise .3s ease-out both;
 }
 
 .hero-icon, .hero-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
   background: linear-gradient(145deg, #101c3d, #101113 75%);
   border: 1px solid rgba(59,130,246,.48);
   box-shadow: 0 10px 30px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.08);
 }
 
-.hero-title, .hero-small-title {
-  background: linear-gradient(110deg,#4cc3ff 0%,#2f7bff 38%,#ff9f1c 72%,#ff6a1a 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  letter-spacing: -.035em;
+.hero-icon {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 20px;
 }
 
+.hero-small {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 11px;
+}
+
+.hero-title, .hero-small-title {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: -.035em;
+  background: linear-gradient(110deg, #4cc3ff 0%, #2f7bff 38%, #ff9f1c 72%, #ff6a1a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-title { font-size: 38px; line-height: 1.1; }
+.hero-small-title { font-size: 31px; }
+
 .hero-subtitle, .hero-small-subtitle {
-  color: #a1a5aa;
-  letter-spacing: .22em;
+  margin: 11px 0 0;
+  color: var(--text-muted);
   font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.landing-line {
+  width: 80px;
+  height: 1px;
+  margin: 25px auto;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
 }
 
 .landing-description {
-  color: #a0a5ab;
+  margin: 0 auto 27px;
+  max-width: 360px;
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.85;
 }
 
+/* Buttons */
 .gold-btn {
-  color: #fff;
-  background: linear-gradient(135deg,#2f7bff 0%,#7c4dff 52%,#ff8a1f 100%);
+  width: 100%;
+  min-height: 52px;
   border: 1px solid rgba(150,195,255,.40);
   border-radius: 14px;
+  padding: 14px 18px;
+  color: #fff;
+  background: linear-gradient(135deg, #2f7bff 0%, #7c4dff 52%, #ff8a1f 100%);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   box-shadow: 0 9px 26px rgba(99,102,241,.30), inset 0 1px 0 rgba(255,255,255,.30);
+}
+.gold-btn:hover { filter: brightness(1.07); box-shadow: 0 12px 34px rgba(124,77,255,.42); }
+.gold-btn:active { transform: translateY(1px) scale(.99); }
+
+.secondary-btn, .back-btn {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 10px;
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(59,130,246,.25);
+  color: #7fc8ff;
   font-size: 12px;
-  letter-spacing: .12em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.secondary-btn:hover, .back-btn:hover {
+  background: rgba(59,130,246,.08);
+  border-color: rgba(59,130,246,.45);
+}
+.back-btn {
+  width: auto;
+  min-height: 36px;
+  padding: 8px 15px;
+  margin: 0 0 15px;
+  font-size: 11px;
 }
 
-.gold-btn:hover {
-  filter: brightness(1.07);
-  box-shadow: 0 12px 34px rgba(124,77,255,.42), inset 0 1px 0 rgba(255,255,255,.38);
-}
-
-.gold-btn:active {
-  transform: translateY(1px) scale(.99);
-}
-
-.access-header h2, .gate-title, .admin-login h2 {
-  color: var(--premium-gold-bright);
-  letter-spacing: -.025em;
-}
-
-.access-header p, .admin-login p, .gate-description {
-  color: var(--premium-muted);
-  line-height: 1.75;
-}
+/* =========================================================
+   ACCESS SELECTOR
+========================================================= */
+.access-header { text-align: center; margin-bottom: 24px; }
+.access-header h2 { margin: 0; color: var(--accent-blue); font-size: 27px; font-weight: 700; letter-spacing: -.02em; }
+.access-header p { margin: 7px 0 0; color: var(--text-muted); font-size: 12px; }
 
 .access-option {
+  width: 100%;
   min-height: 82px;
-  background: linear-gradient(110deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
-  border: 1px solid rgba(255,255,255,.085);
-  border-radius: 16px;
+  margin: 12px 0;
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,.08);
+  background: linear-gradient(110deg, rgba(255,255,255,.035), rgba(255,255,255,.01));
+  color: #fff;
 }
-
 .access-option:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   border-color: rgba(59,130,246,.48);
-  background: linear-gradient(110deg, rgba(59,130,246,.09), rgba(255,255,255,.018));
+  background: linear-gradient(110deg, rgba(59,130,246,.09), rgba(255,255,255,.02));
 }
 
 .option-icon {
-  background: rgba(59,130,246,.07);
-  border-color: rgba(59,130,246,.22);
+  width: 48px; height: 48px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 14px;
+  background: rgba(59,130,246,.08);
+  border: 1px solid rgba(59,130,246,.22);
 }
+.option-text { flex: 1; }
+.option-title { display: block; color: var(--accent-blue); font-size: 13px; font-weight: 700; letter-spacing: .05em; }
+.option-description { display: block; margin-top: 4px; color: #9a9fa6; font-size: 11px; }
+.option-arrow { color: var(--accent-gold); font-size: 22px; font-weight: 300; }
 
-.option-title {
-  color: #6cc4ff;
-  letter-spacing: .08em;
-  font-size: 12px;
-}
-
-.option-description {
-  color: #9a9fa6;
-  font-size: 11px;
-  line-height: 1.5;
-}
-
+/* =========================================================
+   VIP CONTENT & CARDS
+========================================================= */
 .card {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 20px 24px;
+  border-radius: var(--radius-lg);
   background: linear-gradient(150deg, rgba(17,24,46,.98), rgba(8,11,24,.98));
   border: 1px solid rgba(59,130,246,.22);
-  border-radius: 25px;
   box-shadow: 0 24px 65px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.045);
+  margin-bottom: 20px;
 }
-
 .card::before {
-  left: 20%;
-  right: 20%;
+  content: "";
+  position: absolute;
+  top: 0; left: 20%; right: 20%; height: 1px;
   background: linear-gradient(90deg, transparent, rgba(108,196,255,.75), transparent);
 }
 
 .badge {
-  color: #1a0d02;
-  background: linear-gradient(135deg,#ffb52e,#ff8a1f 62%,#ff5e1a);
-  font-size: 9px;
-  letter-spacing: .13em;
-  padding: 8px 13px;
-}
-
-.country {
-  color: var(--premium-gold);
-  letter-spacing: .04em;
-}
-
-.league {
-  color: #9298a0;
-  letter-spacing: .13em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  color: var(--accent-gold-bright);
+  background: rgba(255,159,28,.08);
+  border: 1px solid rgba(255,159,28,.3);
   font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
 
+.match-header { text-align: center; padding: 18px 0 5px; }
+.country { margin: 0 0 4px; font-size: 13px; font-weight: 600; color: var(--accent-gold); letter-spacing: .04em; }
+.league { margin: 0; font-size: 10px; color: #9298a0; letter-spacing: .13em; text-transform: uppercase; }
 .teams {
-  font-family: Poppins, sans-serif;
-  font-size: clamp(20px, 4.6vw, 27px);
-  letter-spacing: -.045em;
+  margin: 15px 0 0;
+  font-size: clamp(20px, 4.6vw, 26px);
   line-height: 1.4;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.03em;
 }
 
 .pick {
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(59,130,246,.14), transparent 75%),
-    linear-gradient(145deg, rgba(59,130,246,.075), rgba(255,255,255,.012));
-  border: 1px solid rgba(59,130,246,.35);
-  border-radius: 19px;
+  position: relative;
+  overflow: hidden;
+  margin: 22px 0 20px;
   padding: 24px 14px;
+  border-radius: 18px;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 0%, rgba(47,123,255,.22), transparent 75%), linear-gradient(145deg, rgba(124,77,255,.10), rgba(255,159,28,.05));
+  border: 1px solid rgba(59,130,246,.35);
 }
-
-.market {
-  color: #8fb4e8;
-  font-size: 9px;
-  letter-spacing: .19em;
-}
-
+.market { font-size: 9px; letter-spacing: .19em; text-transform: uppercase; color: #8fb4e8; margin-bottom: 8px; }
 .prediction {
-  font-family: Poppins, sans-serif;
   font-size: clamp(36px, 8vw, 46px);
-  letter-spacing: -.045em;
-  color: #6cc4ff;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--accent-blue);
+  letter-spacing: -.04em;
   text-shadow: 0 0 28px rgba(255,159,28,.32);
 }
 
-.date {
-  color: #b2b7bd;
-}
+.match-info { display: flex; flex-direction: column; align-items: center; gap: 6px; margin-bottom: 20px; }
+.date { margin: 0; font-size: 12px; color: #b2b7bd; }
+.countdown { margin: 0; color: var(--accent-gold); font-size: 12px; font-weight: 500; font-variant-numeric: tabular-nums; display: flex; align-items: center; gap: 5px;}
 
-.countdown {
-  color: var(--premium-gold);
-  font-variant-numeric: tabular-nums;
-}
-
-#vipPasswordInput, .form-input, select {
-  color: #f4f5f6;
-  background: #070b19;
-  border: 1px solid rgba(255,255,255,.11);
+/* =========================================================
+   FORMS & INPUTS
+========================================================= */
+.form-group { margin-bottom: 15px; text-align: left; }
+.form-label { display: block; margin-bottom: 6px; color: #9db8e6; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.form-input, select, #vipPasswordInput {
+  width: 100%;
+  height: 48px;
+  padding: 0 15px;
   border-radius: 12px;
-  transition: border-color .18s ease, box-shadow .18s ease;
+  border: 1px solid rgba(255,255,255,.11);
+  outline: none;
+  background: #070b19;
+  color: #f4f5f6;
+  font-size: 13px;
+  transition: all .2s ease;
 }
-
-#vipPasswordInput:focus, .form-input:focus, select:focus {
+.form-input:focus, select:focus, #vipPasswordInput:focus {
   border-color: rgba(59,130,246,.7);
   box-shadow: 0 0 0 4px rgba(59,130,246,.075);
 }
+#vipPasswordInput { text-align: center; letter-spacing: .1em; font-size: 14px; }
 
+.error-msg {
+  display: none;
+  margin-top: 12px;
+  color: #ff6262;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   M-PESA & ADMIN SPECIFIC
+========================================================= */
 .mpesa-box {
-  background: rgba(59,130,246,.045);
-  border-color: rgba(59,130,246,.2);
+  margin: 20px 0;
+  padding: 18px;
+  text-align: left;
+  border-radius: 14px;
+  background: rgba(59,130,246,.05);
+  border: 1px solid rgba(59,130,246,.2);
 }
+.mpesa-title { margin-bottom: 15px; text-align: center; color: var(--accent-gold-bright); font-size: 12px; font-weight: 700; letter-spacing: .1em; display: flex; align-items: center; justify-content: center; gap: 6px;}
+.step-row { display: flex; align-items: flex-start; gap: 12px; margin: 12px 0; font-size: 12px; line-height: 1.6; color: #c0c4c9; }
+.step-num { flex: none; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: linear-gradient(135deg, #4cc3ff, #2f7bff); color: #000; font-size: 10px; font-weight: 800; }
+.step-text { flex: 1; }
+.highlight { color: var(--accent-gold-bright); font-weight: 700; }
 
-.mpesa-title, .highlight {
-  color: var(--premium-gold-bright);
+.copy-btn {
+  min-height: 26px; padding: 3px 10px; margin-left: 6px;
+  border-radius: 6px;
+  background: rgba(255,159,28,.1);
+  border: 1px solid rgba(255,159,28,.4);
+  color: var(--accent-gold);
+  font-size: 10px; font-weight: 600;
 }
+.copy-btn:hover { background: rgba(255,159,28,.2); }
 
-.step-row {
-  color: #c0c4c9;
-  line-height: 1.7;
-}
-
-.step-num {
-  color: #fff;
-  background: linear-gradient(135deg,#4cc3ff,#2f7bff);
-}
-
-.secondary-btn, .back-btn {
-  color: #7fc8ff;
-  background: rgba(255,255,255,.018);
-  border-color: rgba(59,130,246,.22);
-  border-radius: 12px;
-}
-
-.secondary-btn:hover, .back-btn:hover {
-  background: rgba(59,130,246,.07);
-  border-color: rgba(59,130,246,.45);
-}
-
-.form-label {
-  color: #9db8e6;
-  letter-spacing: .12em;
-}
-
+.admin-title { display: flex; align-items: center; gap: 8px; margin: 0 0 20px; font-size: 20px; font-weight: 700; color: var(--accent-blue); }
 #adminCorner {
-  background: rgba(7,10,22,.9);
-  border-color: rgba(59,130,246,.16);
-  box-shadow: 0 8px 25px rgba(0,0,0,.25);
+  position: fixed; right: 14px; bottom: 14px; width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center; z-index: 100;
+  border-radius: 50%; background: rgba(7,10,22,.9); border: 1px solid rgba(59,130,246,.16);
+  opacity: .25; box-shadow: 0 8px 25px rgba(0,0,0,.25);
 }
+#adminCorner:hover { opacity: .8; border-color: rgba(59,130,246,.45); }
 
-#adminCorner:hover {
-  opacity: .8;
-  border-color: rgba(59,130,246,.45);
-}
-
-.highlight, .copy-btn { color: #ffa62b; }
-.copy-btn { border-color: rgba(255,159,28,.4); background: rgba(255,159,28,.08); }
-.pick { background:
-    radial-gradient(ellipse at 50% 0%, rgba(47,123,255,.22), transparent 75%),
-    linear-gradient(145deg, rgba(124,77,255,.10), rgba(255,159,28,.05)); }
-
+/* Animations */
 @keyframes premium-rise {
-  from { opacity: 0; transform: translateY(7px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.page:not(.hidden) .landing-card,
-.page:not(.hidden) .access-card,
-.page:not(.hidden) .gate-card,
-.page:not(.hidden) .admin-login,
-.page:not(.hidden) .wrap {
-  animation: premium-rise .28s ease-out both;
-}
-
 @media (max-width: 480px) {
-  .wrap { padding-left: 14px; padding-right: 14px; }
-  .landing-card { padding: 34px 20px 25px; border-radius: 25px; }
-  .access-card { padding: 27px 17px 22px; }
-  .card { padding: 22px 15px 19px; }
+  .landing-card, .access-card, .gate-card, .admin-login { padding: 34px 20px 25px; }
+  .hero-title { font-size: 32px; }
   .teams { font-size: 21px; }
   .prediction { font-size: 39px; }
+  .card { padding: 22px 16px 20px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .page:not(.hidden) .landing-card,
-  .page:not(.hidden) .access-card,
-  .page:not(.hidden) .gate-card,
-  .page:not(.hidden) .admin-login,
-  .page:not(.hidden) .wrap { animation: none !important; }
+  * { animation: none !important; transition: none !important; }
 }
-
 </style>
 </head>
 
@@ -1126,1607 +444,496 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 <!-- =======================================================
      1. LANDING PAGE
 ======================================================= -->
-
 <section id="landingPage" class="page">
-
   <div class="landing-card">
-
-    <div class="hero-icon">🏆</div>
-
-    <h1 class="hero-title">
-      VIP MATCH HUB
-    </h1>
-
-    <p class="hero-subtitle">
-      Premium Football Intelligence
-    </p>
-
+    <div class="hero-icon">
+      <svg class="icon icon-lg icon-gold" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+    </div>
+    <h1 class="hero-title">VIP MATCH HUB</h1>
+    <p class="hero-subtitle">Premium Football Intelligence</p>
     <div class="landing-line"></div>
-
-    <p class="landing-description">
-      Exclusive football predictions, premium match analysis
-      and private VIP selections.
-    </p>
-
-    <button class="gold-btn" onclick="continueToAccess()">
-      TAP TO CONTINUE
-    </button>
-
+    <p class="landing-description">Exclusive football predictions, premium match analysis and private VIP selections.</p>
+    <button class="gold-btn" onclick="continueToAccess()">TAP TO CONTINUE</button>
   </div>
-
 </section>
-
 
 <!-- =======================================================
      2. ACCESS SELECTION
 ======================================================= -->
-
 <section id="accessPage" class="page hidden">
-
   <div class="access-card">
-
     <div class="access-header">
-
       <div class="hero-small">
-        🏆
+        <svg class="icon icon-lg icon-gold" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
       </div>
-
       <h2>VIP MATCH HUB</h2>
-
       <p>Select your access area</p>
-
     </div>
 
-
     <button class="access-option" onclick="openVip()">
-
       <div class="option-icon">
-        🔐
+        <svg class="icon icon-blue" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
       </div>
-
       <div class="option-text">
-
-        <span class="option-title">
-          VIP SECTION
-        </span>
-
-        <span class="option-description">
-          Access exclusive match predictions
-        </span>
-
+        <span class="option-title">VIP SECTION</span>
+        <span class="option-description">Access exclusive match predictions</span>
       </div>
-
-      <div class="option-arrow">
-        ›
-      </div>
-
+      <div class="option-arrow">›</div>
     </button>
-
 
     <button class="access-option" onclick="openAdmin()">
-
       <div class="option-icon">
-        ⚙️
+        <svg class="icon icon-blue" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
       </div>
-
       <div class="option-text">
-
-        <span class="option-title">
-          ADMINISTRATOR
-        </span>
-
-        <span class="option-description">
-          Manage VIP matches and settings
-        </span>
-
+        <span class="option-title">ADMINISTRATOR</span>
+        <span class="option-description">Manage VIP matches and settings</span>
       </div>
-
-      <div class="option-arrow">
-        ›
-      </div>
-
+      <div class="option-arrow">›</div>
     </button>
-
   </div>
-
 </section>
-
 
 <!-- =======================================================
      3. VIP PASSWORD PAGE
 ======================================================= -->
-
 <section id="vipPasswordPage" class="page hidden">
-
   <div class="gate-card">
+    <button class="back-btn" onclick="showAccess()">← Back</button>
+    
+    <div style="text-align:center; margin-bottom: 20px;">
+       <span class="badge">
+         <svg class="icon icon-gold" style="width:12px;height:12px;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+         VIP ACCESS
+       </span>
+    </div>
 
-    <button class="back-btn" onclick="showAccess()">
-      ← Back
-    </button>
-
-    <span class="badge">
-      🔒 VIP ACCESS
-    </span>
-
-    <h2 class="gate-title">
-      Enter VIP Password
-    </h2>
-
-    <p class="gate-description">
-      Enter your VIP password to unlock today's exclusive prediction.
-    </p>
-
+    <h2 class="gate-title">Enter VIP Password</h2>
+    <p class="gate-description">Enter your VIP password to unlock today's exclusive prediction.</p>
 
     <div id="passwordSection">
-
-      <input
-        type="password"
-        id="vipPasswordInput"
-        placeholder="Enter VIP Password"
-        autocomplete="off"
-      >
-
-      <button
-        class="gold-btn"
-        style="margin-top:10px"
-        onclick="checkPassword()"
-      >
-        🔓 UNLOCK VIP ACCESS
+      <input type="password" id="vipPasswordInput" placeholder="Enter VIP Password" autocomplete="off">
+      <button class="gold-btn" style="margin-top:15px" onclick="checkPassword()">
+        <svg class="icon icon-dark" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        UNLOCK VIP ACCESS
       </button>
-
-      <div id="errorMsg" class="error-msg">
-        ❌ Incorrect password. Please check payment options below.
-      </div>
-
+      <div id="errorMsg" class="error-msg">Incorrect password. Please check payment options below.</div>
     </div>
-
 
     <div id="mpesaSection" style="display:none;">
-
       <div class="mpesa-box">
-
         <div class="mpesa-title">
-          📲 M-PESA VIP ACCESS
+          <svg class="icon icon-gold" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          M-PESA VIP ACCESS
         </div>
-
-        <div class="step-row">
-          <div class="step-num">1</div>
-          <div class="step-text">
-            Go to M-Pesa on your phone.
-          </div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-num">2</div>
-          <div class="step-text">
-            Select <strong>Send Money</strong>.
-          </div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-num">3</div>
-          <div class="step-text">
-            Enter Number:
-            <span class="highlight" id="mpesaNumber">
-              0708890627
-            </span>
-
-            <button
-              class="copy-btn"
-              onclick="copyNumber(event)"
-            >
-              Copy
-            </button>
-          </div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-num">4</div>
-          <div class="step-text">
-            Enter Amount:
-            <span class="highlight" id="mpesaAmountDisplay">
-              KSh 1,000
-            </span>
-          </div>
-        </div>
-
-        <div class="step-row">
-          <div class="step-num">5</div>
-          <div class="step-text">
-            Complete payment and enter the VIP password sent to you.
-          </div>
-        </div>
-
+        <div class="step-row"><div class="step-num">1</div><div class="step-text">Go to M-Pesa on your phone.</div></div>
+        <div class="step-row"><div class="step-num">2</div><div class="step-text">Select <strong>Send Money</strong>.</div></div>
+        <div class="step-row"><div class="step-num">3</div><div class="step-text">Enter Number: <span class="highlight" id="mpesaNumber">0708890627</span><button class="copy-btn" onclick="copyNumber(event)">Copy</button></div></div>
+        <div class="step-row"><div class="step-num">4</div><div class="step-text">Enter Amount: <span class="highlight" id="mpesaAmountDisplay">KSh 1,000</span></div></div>
+        <div class="step-row"><div class="step-num">5</div><div class="step-text">Complete payment and enter the VIP password sent to you.</div></div>
       </div>
-
-      <button
-        class="secondary-btn"
-        onclick="resetPasswordForm()"
-      >
-        Try Password Again
-      </button>
-
+      <button class="secondary-btn" onclick="resetPasswordForm()">Try Password Again</button>
     </div>
-
   </div>
-
 </section>
-
 
 <!-- =======================================================
      4. VIP CONTENT
-     
-     IMPORTANT:
-     No match data is hardcoded here.
-     Firebase fills it only after authentication.
 ======================================================= -->
-
 <section id="vipContent" class="page hidden">
-
   <div class="wrap">
-
-    <header class="hero">
-
+    <header class="hero" style="text-align:center; padding: 12px 10px 22px;">
       <div class="hero-small">
-        🏆
+        <svg class="icon icon-lg icon-gold" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
       </div>
-
-      <h1 class="hero-small-title">
-        VIP MATCH HUB
-      </h1>
-
-      <p class="hero-small-subtitle">
-        Premium Football Intelligence
-      </p>
-
+      <h1 class="hero-small-title">VIP MATCH HUB</h1>
+      <p class="hero-small-subtitle">Premium Football Intelligence</p>
     </header>
 
-
     <main>
-
       <div class="card">
-
         <div style="text-align:center;">
           <span class="badge">
-            ✦ VIP PREMIUM
+            <svg class="icon icon-gold" style="width:12px;height:12px;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            VIP PREMIUM
           </span>
         </div>
 
-
         <div class="match-header">
-
           <p class="country" id="country"></p>
-
           <p class="league" id="league"></p>
-
-          <h2 class="teams" id="teams">
-            Loading VIP match...
-          </h2>
-
+          <h2 class="teams" id="teams">Loading VIP match...</h2>
         </div>
-
 
         <div class="pick">
-
-          <div class="market" id="market">
-            —
-          </div>
-
-          <div class="prediction" id="prediction">
-            —
-          </div>
-
+          <div class="market" id="market">—</div>
+          <div class="prediction" id="prediction">—</div>
         </div>
-
 
         <div class="match-info">
-
           <p class="date" id="date"></p>
-
-          <p class="countdown" id="countdown"></p>
-
+          <p class="countdown" id="countdown">
+            <!-- The JS will populate this, but we add the SVG icon here -->
+            <svg class="icon icon-gold" style="width:14px;height:14px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span id="countdownText"></span>
+          </p>
         </div>
 
-
-        <button
-          class="secondary-btn"
-          onclick="logoutVip()"
-        >
-          🔒 Lock VIP Section
+        <button class="gold-btn" onclick="logoutVip()">
+          <svg class="icon icon-dark" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          Lock VIP Section
         </button>
-
       </div>
-
     </main>
-
   </div>
-
 </section>
-
 
 <!-- =======================================================
      5. ADMIN PAGE
 ======================================================= -->
-
 <section id="adminPage" class="page hidden">
-
   <div class="wrap">
-
     <div class="admin-login" id="adminLoginBox">
-
-      <button class="back-btn" onclick="showAccess()">
-        ← Back
-      </button>
-
-      <div class="hero-small" style="margin-bottom:8px;">
-        ⚙️
+      <button class="back-btn" onclick="showAccess()">← Back</button>
+      <div class="hero-small" style="margin-bottom:15px;">
+        <svg class="icon icon-lg icon-blue" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
       </div>
-
-      <h2>
-        Administrator
-      </h2>
-
-      <p>
-        Secure VIP Match Hub management
-      </p>
-
+      <h2>Administrator</h2>
+      <p>Secure VIP Match Hub management</p>
 
       <div class="form-group">
-
-        <label class="form-label">
-          Admin Email
-        </label>
-
-        <input
-          class="form-input"
-          type="email"
-          id="adminEmail"
-          placeholder="Admin email"
-          autocomplete="username"
-        >
-
+        <label class="form-label">Admin Email</label>
+        <input class="form-input" type="email" id="adminEmail" placeholder="Admin email" autocomplete="username">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Password
-        </label>
-
-        <input
-          class="form-input"
-          type="password"
-          id="adminPassword"
-          placeholder="Admin password"
-          autocomplete="current-password"
-        >
-
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" id="adminPassword" placeholder="Admin password" autocomplete="current-password">
       </div>
 
-
-      <button
-        class="gold-btn"
-        onclick="loginAdmin()"
-      >
-        🔐 ADMIN LOGIN
+      <button class="gold-btn" onclick="loginAdmin()">
+        ADMIN LOGIN
       </button>
-
-      <div
-        id="adminLoginError"
-        class="error-msg"
-      >
-        ❌ Wrong admin email or password.
-      </div>
-
+      <div id="adminLoginError" class="error-msg">Wrong admin email or password.</div>
     </div>
 
-
     <!-- ADMIN DASHBOARD -->
-
-    <div
-      id="adminDashboard"
-      class="card"
-    >
-
-      <button class="back-btn" onclick="showAccess()">
-        ← Exit Dashboard
-      </button>
-
+    <div id="adminDashboard" class="card">
+      <button class="back-btn" onclick="showAccess()">← Exit Dashboard</button>
       <h3 class="admin-title">
-        ⚙️ Admin Dashboard
+        <svg class="icon icon-blue" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Dashboard
       </h3>
 
-
       <div class="form-group">
-
-        <label class="form-label">
-          VIP Password
-        </label>
-
-        <input
-          class="form-input"
-          id="vipPassConfigInput"
-          placeholder="New VIP Password"
-          autocomplete="off"
-        >
-
+        <label class="form-label">VIP Password</label>
+        <input class="form-input" id="vipPassConfigInput" placeholder="New VIP Password" autocomplete="off">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          VIP Price
-        </label>
-
-        <input
-          class="form-input"
-          id="priceInput"
-          placeholder="VIP Price e.g. 1000"
-          inputmode="numeric"
-        >
-
+        <label class="form-label">VIP Price</label>
+        <input class="form-input" id="priceInput" placeholder="VIP Price e.g. 1000" inputmode="numeric">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Country
-        </label>
-
-        <input
-          class="form-input"
-          id="countryInput"
-          placeholder="Country"
-        >
-
+        <label class="form-label">Country</label>
+        <input class="form-input" id="countryInput" placeholder="Country">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          League
-        </label>
-
-        <input
-          class="form-input"
-          id="leagueInput"
-          placeholder="League"
-        >
-
+        <label class="form-label">League</label>
+        <input class="form-input" id="leagueInput" placeholder="League">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Home Team
-        </label>
-
-        <input
-          class="form-input"
-          id="homeInput"
-          placeholder="Home Team"
-        >
-
+        <label class="form-label">Home Team</label>
+        <input class="form-input" id="homeInput" placeholder="Home Team">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Away Team
-        </label>
-
-        <input
-          class="form-input"
-          id="awayInput"
-          placeholder="Away Team"
-        >
-
+        <label class="form-label">Away Team</label>
+        <input class="form-input" id="awayInput" placeholder="Away Team">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Market
-        </label>
-
-        <select
-          class="form-input"
-          id="marketInput"
-        >
+        <label class="form-label">Market</label>
+        <select class="form-input" id="marketInput">
           <option>Correct Score</option>
           <option>Over 2.5</option>
           <option>BTTS</option>
           <option>1X2</option>
         </select>
-
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Prediction
-        </label>
-
-        <input
-          class="form-input"
-          id="predictionInput"
-          placeholder="Prediction"
-        >
-
+        <label class="form-label">Prediction</label>
+        <input class="form-input" id="predictionInput" placeholder="Prediction">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Match Date
-        </label>
-
-        <input
-          class="form-input"
-          id="dateInput"
-          placeholder="DD/MM/YYYY"
-        >
-
+        <label class="form-label">Match Date</label>
+        <input class="form-input" id="dateInput" placeholder="DD/MM/YYYY">
       </div>
-
-
       <div class="form-group">
-
-        <label class="form-label">
-          Kickoff Time
-        </label>
-
-        <input
-          class="form-input"
-          id="timeInput"
-          placeholder="HH:MM — 24hr"
-        >
-
+        <label class="form-label">Kickoff Time</label>
+        <input class="form-input" id="timeInput" placeholder="HH:MM — 24hr">
       </div>
 
-
-      <button
-        class="gold-btn"
-        onclick="save()"
-      >
-        💾 UPDATE VIP MATCH
+      <button class="gold-btn" onclick="save()">
+        <svg class="icon icon-dark" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+        UPDATE VIP MATCH
       </button>
-
-
-      <button
-        class="secondary-btn"
-        onclick="logoutAdmin()"
-      >
-        Log Out
-      </button>
-
+      <button class="secondary-btn" onclick="logoutAdmin()">Log Out</button>
     </div>
-
   </div>
-
 </section>
 
-
 <!-- =======================================================
-     FIREBASE
+     FIREBASE & JAVASCRIPT (Left Intact)
 ======================================================= -->
-
 <script type="module">
-
-import {
-  initializeApp
-} from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js';
-
-import {
-  getDatabase,
-  ref,
-  get,
-  set
-} from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js';
-
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js';
-
-
-/* =========================================================
-   FIREBASE CONFIG
-========================================================= */
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js';
+import { getDatabase, ref, get, set } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js';
 
 const firebaseConfig = {
-
-  apiKey:
-    'AIzaSyAVy-VKV5_Lgg1kIY-H49uNS9DwPkdKOD8',
-
-  authDomain:
-    'vip-match-hub.firebaseapp.com',
-
-  databaseURL:
-    'https://vip-match-hub-default-rtdb.firebaseio.com',
-
-  projectId:
-    'vip-match-hub',
-
-  storageBucket:
-    'vip-match-hub.firebasestorage.app',
-
-  messagingSenderId:
-    '956386477990',
-
-  appId:
-    '1:956386477990:web:40e2888eed6a17f9d7f167'
-
+  apiKey: 'AIzaSyAVy-VKV5_Lgg1kIY-H49uNS9DwPkdKOD8',
+  authDomain: 'vip-match-hub.firebaseapp.com',
+  databaseURL: 'https://vip-match-hub-default-rtdb.firebaseio.com',
+  projectId: 'vip-match-hub',
+  storageBucket: 'vip-match-hub.firebasestorage.app',
+  messagingSenderId: '956386477990',
+  appId: '1:956386477990:web:40e2888eed6a17f9d7f167'
 };
 
-
-const app =
-  initializeApp(firebaseConfig);
-
-const db =
-  getDatabase(app);
-
-const auth =
-  getAuth(app);
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
 
 let currentVipPassword = '2026';
-
 let countdownTimer = null;
 
-
-/* =========================================================
-   PAGE HELPERS
-========================================================= */
-
-const pages = [
-  'landingPage',
-  'accessPage',
-  'vipPasswordPage',
-  'vipContent',
-  'adminPage'
-];
-
+const pages = ['landingPage', 'accessPage', 'vipPasswordPage', 'vipContent', 'adminPage'];
 
 function hideAllPages(){
-
   pages.forEach(id=>{
-
-    const el =
-      document.getElementById(id);
-
-    if(el){
-
-      el.classList.add('hidden');
-
-    }
-
+    const el = document.getElementById(id);
+    if(el) el.classList.add('hidden');
   });
-
 }
-
 
 function showPage(id){
-
   hideAllPages();
-
-  const page =
-    document.getElementById(id);
-
-  if(page){
-
-    page.classList.remove('hidden');
-
-  }
-
+  const page = document.getElementById(id);
+  if(page) page.classList.remove('hidden');
 }
 
-
-/* =========================================================
-   LANDING
-========================================================= */
-
-window.continueToAccess = ()=>{
-
-  showAccess();
-
-};
-
-
-window.showAccess = ()=>{
-
-  showPage('accessPage');
-
-};
-
-
-/* =========================================================
-   VIP ENTRY
-========================================================= */
+window.continueToAccess = ()=>{ showAccess(); };
+window.showAccess = ()=>{ showPage('accessPage'); };
 
 window.openVip = async()=>{
-
-  /*
-    If this browser already has a valid VIP session,
-    skip the password page.
-  */
-
   try{
-
-    if(
-      sessionStorage.getItem(
-        'vip_authenticated'
-      ) === 'true'
-    ){
-
+    if(sessionStorage.getItem('vip_authenticated') === 'true'){
       showPage('vipContent');
-
       await loadVipMatch();
-
       return;
-
     }
-
   }catch(e){}
-
   showPage('vipPasswordPage');
-
 };
 
-
-/* =========================================================
-   ADMIN ENTRY
-========================================================= */
-
-window.openAdmin = ()=>{
-
-  showPage('adminPage');
-
-};
-
-
-/* =========================================================
-   VIP PASSWORD
-========================================================= */
+window.openAdmin = ()=>{ showPage('adminPage'); };
 
 window.checkPassword = async()=>{
+  const input = document.getElementById('vipPasswordInput');
+  const entered = input.value.trim();
 
-  const input =
-    document.getElementById(
-      'vipPasswordInput'
-    );
-
-  const entered =
-    input.value.trim();
-
-
-  if(
-    entered &&
-    entered === currentVipPassword
-  ){
-
-    sessionStorage.setItem(
-      'vip_authenticated',
-      'true'
-    );
-
-
-    document
-      .getElementById('errorMsg')
-      .style.display = 'none';
-
-
-    document
-      .getElementById('mpesaSection')
-      .style.display = 'none';
-
-
+  if(entered && entered === currentVipPassword){
+    sessionStorage.setItem('vip_authenticated', 'true');
+    document.getElementById('errorMsg').style.display = 'none';
+    document.getElementById('mpesaSection').style.display = 'none';
     showPage('vipContent');
-
     await loadVipMatch();
-
   }else{
-
-    document
-      .getElementById('errorMsg')
-      .style.display = 'block';
-
-    document
-      .getElementById('mpesaSection')
-      .style.display = 'block';
-
+    document.getElementById('errorMsg').style.display = 'block';
+    document.getElementById('mpesaSection').style.display = 'block';
   }
-
 };
-
-
-/* =========================================================
-   VIP RESET
-========================================================= */
 
 window.resetPasswordForm = ()=>{
-
-  document
-    .getElementById('errorMsg')
-    .style.display = 'none';
-
-  document
-    .getElementById('mpesaSection')
-    .style.display = 'none';
-
-  document
-    .getElementById('vipPasswordInput')
-    .value = '';
-
+  document.getElementById('errorMsg').style.display = 'none';
+  document.getElementById('mpesaSection').style.display = 'none';
+  document.getElementById('vipPasswordInput').value = '';
 };
-
-
-/* =========================================================
-   LOCK VIP
-========================================================= */
 
 window.logoutVip = ()=>{
-
-  sessionStorage.removeItem(
-    'vip_authenticated'
-  );
-
+  sessionStorage.removeItem('vip_authenticated');
   clearInterval(countdownTimer);
-
-  document
-    .getElementById('vipPasswordInput')
-    .value = '';
-
+  document.getElementById('vipPasswordInput').value = '';
   showPage('accessPage');
-
 };
-
-
-/* =========================================================
-   LOAD VIP CONFIG
-========================================================= */
 
 async function loadVipConfig(){
-
   try{
-
-    const snap =
-      await get(
-        ref(db,'config')
-      );
-
-
+    const snap = await get(ref(db,'config'));
     if(snap.exists()){
-
-      const c =
-        snap.val();
-
-
-      if(c.vipPassword){
-
-        currentVipPassword =
-          String(c.vipPassword);
-
-      }
-
-
+      const c = snap.val();
+      if(c.vipPassword) currentVipPassword = String(c.vipPassword);
       if(c.price){
-
-        document
-          .getElementById(
-            'mpesaAmountDisplay'
-          )
-          .textContent =
-          `KSh ${Number(c.price).toLocaleString()}`;
-
+        document.getElementById('mpesaAmountDisplay').textContent = `KSh ${Number(c.price).toLocaleString()}`;
       }
-
     }
-
-  }catch(error){
-
-    console.error(
-      'Config loading error:',
-      error
-    );
-
-  }
-
+  }catch(error){ console.error('Config loading error:', error); }
 }
-
-
-/* =========================================================
-   LOAD VIP MATCH
-========================================================= */
 
 async function loadVipMatch(){
-
   try{
-
-    /*
-      Match data is fetched ONLY here.
-
-      It is NOT hardcoded in the HTML.
-    */
-
-    const snap =
-      await get(
-        ref(db,'matches/latest')
-      );
-
-
+    const snap = await get(ref(db,'matches/latest'));
     if(!snap.exists()){
-
-      document
-        .getElementById('teams')
-        .textContent =
-        'No VIP match available';
-
+      document.getElementById('teams').textContent = 'No VIP match available';
       return;
-
     }
-
-
-    const d =
-      snap.val();
-
-
-    document
-      .getElementById('country')
-      .textContent =
-      d.country || '';
-
-
-    document
-      .getElementById('league')
-      .textContent =
-      d.league || '';
-
-
-    document
-      .getElementById('teams')
-      .textContent =
-      `${d.home || ''} vs ${d.away || ''}`;
-
-
-    document
-      .getElementById('market')
-      .textContent =
-      d.market || '';
-
-
-    document
-      .getElementById('prediction')
-      .textContent =
-      d.prediction || '';
-
-
-    document
-      .getElementById('date')
-      .textContent =
-      d.date || '';
-
-
-    startCountdown(
-      d.date,
-      d.time
-    );
-
-
+    const d = snap.val();
+    document.getElementById('country').textContent = d.country || '';
+    document.getElementById('league').textContent = d.league || '';
+    document.getElementById('teams').textContent = `${d.home || ''} vs ${d.away || ''}`;
+    document.getElementById('market').textContent = d.market || '';
+    document.getElementById('prediction').textContent = d.prediction || '';
+    document.getElementById('date').textContent = d.date || '';
+    startCountdown(d.date, d.time);
   }catch(error){
-
-    console.error(
-      'Match loading error:',
-      error
-    );
-
-    document
-      .getElementById('teams')
-      .textContent =
-      'Unable to load VIP match';
-
+    console.error('Match loading error:', error);
+    document.getElementById('teams').textContent = 'Unable to load VIP match';
   }
-
 }
-
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
 
 function startCountdown(dateStr,timeStr){
-
   clearInterval(countdownTimer);
-
-
-  if(!dateStr){
-
-    document
-      .getElementById('countdown')
-      .textContent = '';
-
-    return;
-
-  }
-
-
-  const parts =
-    dateStr.split('/').map(Number);
-
-
-  if(parts.length !== 3){
-
-    return;
-
-  }
-
-
-  const d = parts[0];
-  const m = parts[1];
-  const y = parts[2];
-
-
-  const timeParts =
-    (timeStr || '00:00')
-      .split(':')
-      .map(Number);
-
-
-  const hh =
-    Number.isFinite(timeParts[0])
-      ? timeParts[0]
-      : 0;
-
-
-  const mm =
-    Number.isFinite(timeParts[1])
-      ? timeParts[1]
-      : 0;
-
-
-  const kickoff =
-    new Date(
-      y,
-      m - 1,
-      d,
-      hh,
-      mm
-    );
-
-
-  if(isNaN(kickoff.getTime())){
-
-    return;
-
-  }
-
+  const countdownText = document.getElementById('countdownText');
+  if(!dateStr){ countdownText.textContent = ''; return; }
+  
+  const parts = dateStr.split('/').map(Number);
+  if(parts.length !== 3) return;
+  
+  const d = parts[0], m = parts[1], y = parts[2];
+  const timeParts = (timeStr || '00:00').split(':').map(Number);
+  const hh = Number.isFinite(timeParts[0]) ? timeParts[0] : 0;
+  const mm = Number.isFinite(timeParts[1]) ? timeParts[1] : 0;
+  const kickoff = new Date(y, m - 1, d, hh, mm);
+  
+  if(isNaN(kickoff.getTime())) return;
 
   const tick = ()=>{
-
-    const diff =
-      kickoff.getTime() - Date.now();
-
-
-    const countdown =
-      document.getElementById(
-        'countdown'
-      );
-
-
+    const diff = kickoff.getTime() - Date.now();
     if(diff <= 0){
-
-      countdown.textContent =
-        '⚽ Kickoff in progress';
-
-      clearInterval(
-        countdownTimer
-      );
-
+      countdownText.textContent = 'Kickoff in progress';
+      clearInterval(countdownTimer);
       return;
-
     }
-
-
-    const days =
-      Math.floor(
-        diff / 86400000
-      );
-
-
-    const hrs =
-      Math.floor(
-        (diff % 86400000) / 3600000
-      );
-
-
-    const mins =
-      Math.floor(
-        (diff % 3600000) / 60000
-      );
-
-
-    const secs =
-      Math.floor(
-        (diff % 60000) / 1000
-      );
-
-
-    countdown.textContent =
-      `⏳ Kicks off in ${
-        days > 0
-          ? days + 'd '
-          : ''
-      }${hrs}h ${mins}m ${secs}s`;
-
+    const days = Math.floor(diff / 86400000);
+    const hrs = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    
+    // Removed the emoji from here, the SVG is now in the HTML
+    countdownText.textContent = `Kicks off in ${days > 0 ? days + 'd ' : ''}${hrs}h ${mins}m ${secs}s`;
   };
-
-
   tick();
-
-  countdownTimer =
-    setInterval(
-      tick,
-      1000
-    );
-
+  countdownTimer = setInterval(tick, 1000);
 }
-
-
-/* =========================================================
-   COPY M-PESA
-========================================================= */
 
 window.copyNumber = async(event)=>{
-
-  const number =
-    document
-      .getElementById('mpesaNumber')
-      .textContent
-      .trim();
-
-
+  const number = document.getElementById('mpesaNumber').textContent.trim();
   try{
-
-    await navigator.clipboard
-      .writeText(number);
-
-
-    const btn =
-      event.currentTarget;
-
-
-    const original =
-      btn.textContent;
-
-
-    btn.textContent =
-      'Copied';
-
-
-    setTimeout(()=>{
-
-      btn.textContent =
-        original;
-
-    },1500);
-
-
+    await navigator.clipboard.writeText(number);
+    const btn = event.currentTarget;
+    const original = btn.textContent;
+    btn.textContent = 'Copied';
+    setTimeout(()=>{ btn.textContent = original; },1500);
   }catch(e){
-
-    alert(
-      'Copy failed. Number: ' +
-      number
-    );
-
+    alert('Copy failed. Number: ' + number);
   }
-
 };
 
-
-/* =========================================================
-   ADMIN AUTH STATE
-========================================================= */
-
-onAuthStateChanged(
-  auth,
-  (user)=>{
-
-    const dashboard =
-      document.getElementById(
-        'adminDashboard'
-      );
-
-    const loginBox =
-      document.getElementById(
-        'adminLoginBox'
-      );
-
-
-    if(user){
-
-      loginBox.style.display =
-        'none';
-
-      dashboard.style.display =
-        'block';
-
-      loadAdminInputs();
-
-    }else{
-
-      loginBox.style.display =
-        'block';
-
-      dashboard.style.display =
-        'none';
-
-    }
-
+onAuthStateChanged(auth, (user)=>{
+  const dashboard = document.getElementById('adminDashboard');
+  const loginBox = document.getElementById('adminLoginBox');
+  if(user){
+    loginBox.style.display = 'none';
+    dashboard.style.display = 'block';
+    loadAdminInputs();
+  }else{
+    loginBox.style.display = 'block';
+    dashboard.style.display = 'none';
   }
-);
-
-
-/* =========================================================
-   ADMIN LOGIN
-========================================================= */
+});
 
 window.loginAdmin = async()=>{
-
-  const email =
-    document
-      .getElementById('adminEmail')
-      .value
-      .trim();
-
-
-  const password =
-    document
-      .getElementById('adminPassword')
-      .value;
-
-
-  const error =
-    document.getElementById(
-      'adminLoginError'
-    );
-
-
-  error.style.display =
-    'none';
-
-
+  const email = document.getElementById('adminEmail').value.trim();
+  const password = document.getElementById('adminPassword').value;
+  const error = document.getElementById('adminLoginError');
+  
+  error.style.display = 'none';
   if(!email || !password){
-
-    error.textContent =
-      '❌ Enter your admin email and password.';
-
-    error.style.display =
-      'block';
-
+    error.textContent = 'Enter your admin email and password.';
+    error.style.display = 'block';
     return;
-
   }
-
-
   try{
-
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-
+    await signInWithEmailAndPassword(auth, email, password);
   }catch(e){
-
-    error.textContent =
-      '❌ Wrong admin email or password.';
-
-    error.style.display =
-      'block';
-
+    error.textContent = 'Wrong admin email or password.';
+    error.style.display = 'block';
   }
-
 };
-
-
-/* =========================================================
-   ADMIN LOGOUT
-========================================================= */
 
 window.logoutAdmin = async()=>{
-
   await signOut(auth);
-
   showAccess();
-
 };
-
-
-/* =========================================================
-   LOAD ADMIN DATA
-========================================================= */
 
 async function loadAdminInputs(){
-
   try{
-
-    const configSnap =
-      await get(
-        ref(db,'config')
-      );
-
-
+    const configSnap = await get(ref(db,'config'));
     if(configSnap.exists()){
-
-      const c =
-        configSnap.val();
-
-
-      document
-        .getElementById(
-          'vipPassConfigInput'
-        )
-        .value =
-        c.vipPassword || '2026';
-
-
-      document
-        .getElementById(
-          'priceInput'
-        )
-        .value =
-        c.price || '1000';
-
+      const c = configSnap.val();
+      document.getElementById('vipPassConfigInput').value = c.vipPassword || '2026';
+      document.getElementById('priceInput').value = c.price || '1000';
     }
-
-
-    const matchSnap =
-      await get(
-        ref(db,'matches/latest')
-      );
-
-
+    const matchSnap = await get(ref(db,'matches/latest'));
     if(matchSnap.exists()){
-
-      const d =
-        matchSnap.val();
-
-
-      document
-        .getElementById(
-          'countryInput'
-        )
-        .value =
-        d.country || '';
-
-
-      document
-        .getElementById(
-          'leagueInput'
-        )
-        .value =
-        d.league || '';
-
-
-      document
-        .getElementById(
-          'homeInput'
-        )
-        .value =
-        d.home || '';
-
-
-      document
-        .getElementById(
-          'awayInput'
-        )
-        .value =
-        d.away || '';
-
-
-      document
-        .getElementById(
-          'marketInput'
-        )
-        .value =
-        d.market || 'Correct Score';
-
-
-      document
-        .getElementById(
-          'predictionInput'
-        )
-        .value =
-        d.prediction || '';
-
-
-      document
-        .getElementById(
-          'dateInput'
-        )
-        .value =
-        d.date || '';
-
-
-      document
-        .getElementById(
-          'timeInput'
-        )
-        .value =
-        d.time || '';
-
+      const d = matchSnap.val();
+      document.getElementById('countryInput').value = d.country || '';
+      document.getElementById('leagueInput').value = d.league || '';
+      document.getElementById('homeInput').value = d.home || '';
+      document.getElementById('awayInput').value = d.away || '';
+      document.getElementById('marketInput').value = d.market || 'Correct Score';
+      document.getElementById('predictionInput').value = d.prediction || '';
+      document.getElementById('dateInput').value = d.date || '';
+      document.getElementById('timeInput').value = d.time || '';
     }
-
-
-  }catch(error){
-
-    console.error(
-      'Admin loading error:',
-      error
-    );
-
-  }
-
+  }catch(error){ console.error('Admin loading error:', error); }
 }
 
-
-/* =========================================================
-   SAVE ADMIN DATA
-========================================================= */
-
 window.save = async()=>{
-
   const matchData = {
-
-    country:
-      document
-        .getElementById(
-          'countryInput'
-        )
-        .value
-        .trim(),
-
-    league:
-      document
-        .getElementById(
-          'leagueInput'
-        )
-        .value
-        .trim(),
-
-    home:
-      document
-        .getElementById(
-          'homeInput'
-        )
-        .value
-        .trim(),
-
-    away:
-      document
-        .getElementById(
-          'awayInput'
-        )
-        .value
-        .trim(),
-
-    market:
-      document
-        .getElementById(
-          'marketInput'
-        )
-        .value,
-
-    prediction:
-      document
-        .getElementById(
-          'predictionInput'
-        )
-        .value
-        .trim(),
-
-    date:
-      document
-        .getElementById(
-          'dateInput'
-        )
-        .value
-        .trim(),
-
-    time:
-      document
-        .getElementById(
-          'timeInput'
-        )
-        .value
-        .trim()
-
+    country: document.getElementById('countryInput').value.trim(),
+    league: document.getElementById('leagueInput').value.trim(),
+    home: document.getElementById('homeInput').value.trim(),
+    away: document.getElementById('awayInput').value.trim(),
+    market: document.getElementById('marketInput').value,
+    prediction: document.getElementById('predictionInput').value.trim(),
+    date: document.getElementById('dateInput').value.trim(),
+    time: document.getElementById('timeInput').value.trim()
   };
-
-
   const configData = {
-
-    vipPassword:
-      document
-        .getElementById(
-          'vipPassConfigInput'
-        )
-        .value
-        .trim() || '2026',
-
-    price:
-      document
-        .getElementById(
-          'priceInput'
-        )
-        .value
-        .trim() || '1000'
-
+    vipPassword: document.getElementById('vipPassConfigInput').value.trim() || '2026',
+    price: document.getElementById('priceInput').value.trim() || '1000'
   };
-
 
   try{
-
-    await set(
-      ref(db,'matches/latest'),
-      matchData
-    );
-
-
-    await set(
-      ref(db,'config'),
-      configData
-    );
-
-
-    currentVipPassword =
-      configData.vipPassword;
-
-
-    alert(
-      '✓ VIP Match & Configuration Updated!'
-    );
-
-
+    await set(ref(db,'matches/latest'), matchData);
+    await set(ref(db,'config'), configData);
+    currentVipPassword = configData.vipPassword;
+    alert('VIP Match & Configuration Updated!');
   }catch(error){
-
     console.error(error);
-
-    alert(
-      'Update failed. Check your Firebase connection.'
-    );
-
+    alert('Update failed. Check your Firebase connection.');
   }
-
 };
 
-
-/* =========================================================
-   INITIAL CONFIG LOAD
-=========================================================
-
-   This loads ONLY the password/config.
-   The actual match is NOT loaded until VIP unlock.
-========================================================= */
-
 loadVipConfig();
-
 </script>
 
 </body>
