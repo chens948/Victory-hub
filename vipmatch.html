@@ -436,6 +436,30 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ---- multi-pick display + builder ---- */
+.picks-list { text-align: left; }
+.pick-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 13px 4px;
+  border-top: 1px solid rgba(76,140,255,.2);
+}
+.pick-row:first-child { border-top: 0; }
+.pick-match { flex: 1; font-size: 14px; font-weight: 600; color: #f4f5f6; line-height: 1.4; }
+.pick-sel { font-size: 14px; font-weight: 800; color: #ffa62b; white-space: nowrap;
+  text-shadow: 0 0 18px rgba(255,159,28,.3); }
+.pick-edit {
+  padding: 12px; margin-bottom: 10px; border-radius: 14px;
+  background: rgba(59,130,246,.05); border: 1px solid rgba(76,140,255,.2);
+}
+.pick-edit .pe-match { margin-bottom: 8px; }
+.pe-line { display: flex; gap: 8px; }
+.pe-line .pe-sel { flex: 1; min-width: 0; }
+.pe-del {
+  flex: none; width: 46px; border-radius: 12px; cursor: pointer;
+  color: #ff6262; background: rgba(255,98,98,.07);
+  border: 1px solid rgba(255,98,98,.3); font-size: 15px;
+}
 </style>
 </head>
 
@@ -568,6 +592,7 @@ button:focus-visible, input:focus-visible, select:focus-visible {
         <div class="pick">
           <div class="market" id="market">—</div>
           <div class="prediction" id="prediction">—</div>
+          <div class="picks-list" id="picksList" style="display:none;"></div>
         </div>
 
         <div class="match-info">
@@ -641,26 +666,46 @@ button:focus-visible, input:focus-visible, select:focus-visible {
         <input class="form-input" id="leagueInput" placeholder="League">
       </div>
       <div class="form-group">
-        <label class="form-label">Home Team</label>
-        <input class="form-input" id="homeInput" placeholder="Home Team">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Away Team</label>
-        <input class="form-input" id="awayInput" placeholder="Away Team">
-      </div>
-      <div class="form-group">
         <label class="form-label">Market</label>
-        <select class="form-input" id="marketInput">
+        <select class="form-input" id="marketInput" onchange="onMarketChange()">
           <option>Correct Score</option>
           <option>Over 2.5</option>
           <option>BTTS</option>
           <option>1X2</option>
+          <option>Combo</option>
         </select>
       </div>
-      <div class="form-group">
-        <label class="form-label">Prediction</label>
-        <input class="form-input" id="predictionInput" placeholder="Prediction">
+
+      <div id="singleFields">
+        <div class="form-group">
+          <label class="form-label">Home Team</label>
+          <input class="form-input" id="homeInput" placeholder="Home Team">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Away Team</label>
+          <input class="form-input" id="awayInput" placeholder="Away Team">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Prediction</label>
+          <input class="form-input" id="predictionInput" placeholder="Prediction">
+        </div>
       </div>
+
+      <div id="multiFields" style="display:none;">
+        <div class="form-group">
+          <label class="form-label">Picks — one line per match</label>
+          <div id="picksBuilder"></div>
+          <button type="button" class="secondary-btn" onclick="addPickRow()" style="margin-top:10px;">＋ Add Pick</button>
+          <datalist id="selOptions">
+            <option value="GG"></option><option value="NG"></option>
+            <option value="Over 1.5"></option><option value="Over 2.5"></option><option value="Over 3.5"></option>
+            <option value="Under 2.5"></option>
+            <option value="1"></option><option value="X"></option><option value="2"></option>
+            <option value="1X"></option><option value="X2"></option><option value="12"></option>
+          </datalist>
+        </div>
+      </div>
+
       <div class="form-group">
         <label class="form-label">Match Date</label>
         <input class="form-input" id="dateInput" placeholder="DD/MM/YYYY">
@@ -787,9 +832,37 @@ async function loadVipMatch(){
     const d = snap.val();
     document.getElementById('country').textContent = d.country || '';
     document.getElementById('league').textContent = d.league || '';
-    document.getElementById('teams').textContent = `${d.home || ''} vs ${d.away || ''}`;
+    const picks = d.picks ? Object.values(d.picks).filter(x => x && x.match) : [];
+    const teamsEl = document.getElementById('teams');
+    const predEl = document.getElementById('prediction');
+    const listEl = document.getElementById('picksList');
     document.getElementById('market').textContent = d.market || '';
-    document.getElementById('prediction').textContent = d.prediction || '';
+    listEl.textContent = '';
+
+    if(picks.length){
+      teamsEl.textContent = picks.length > 1
+        ? `${picks.length}-Match ${d.market === 'Combo' ? 'Combo' : d.market + ' Combo'}`
+        : picks[0].match;
+      picks.forEach(pk=>{
+        const row = document.createElement('div');
+        row.className = 'pick-row';
+        const m = document.createElement('span');
+        m.className = 'pick-match';
+        m.textContent = pk.match;
+        const sel = document.createElement('span');
+        sel.className = 'pick-sel';
+        sel.textContent = pk.selection || '';
+        row.append(m, sel);
+        listEl.appendChild(row);
+      });
+      predEl.style.display = 'none';
+      listEl.style.display = 'block';
+    }else{
+      teamsEl.textContent = `${d.home || ''} vs ${d.away || ''}`;
+      predEl.textContent = d.prediction || '';
+      predEl.style.display = '';
+      listEl.style.display = 'none';
+    }
     document.getElementById('date').textContent = d.date || '';
     startCountdown(d.date, d.time);
   }catch(error){
@@ -900,20 +973,80 @@ async function loadAdminInputs(){
       document.getElementById('awayInput').value = d.away || '';
       document.getElementById('marketInput').value = d.market || 'Correct Score';
       document.getElementById('predictionInput').value = d.prediction || '';
+      document.getElementById('picksBuilder').textContent = '';
+      if(d.picks){
+        Object.values(d.picks).forEach(pk=>{ if(pk) addPickRow(pk.match, pk.selection); });
+      }
+      onMarketChange();
       document.getElementById('dateInput').value = d.date || '';
       document.getElementById('timeInput').value = d.time || '';
     }
   }catch(error){ console.error('Admin loading error:', error); }
 }
 
+window.onMarketChange = ()=>{
+  const single = document.getElementById('marketInput').value === 'Correct Score';
+  document.getElementById('singleFields').style.display = single ? '' : 'none';
+  document.getElementById('multiFields').style.display = single ? 'none' : '';
+  if(!single && !document.querySelector('#picksBuilder .pick-edit')){
+    addPickRow();
+  }
+};
+
+window.addPickRow = (match = '', selection = '')=>{
+  if(typeof match !== 'string') match = '';
+  const market = document.getElementById('marketInput').value;
+  if(!selection){
+    selection = market === 'BTTS' ? 'GG' : market === 'Over 2.5' ? 'Over 2.5' : '';
+  }
+  const row = document.createElement('div');
+  row.className = 'pick-edit';
+  const m = document.createElement('input');
+  m.className = 'form-input pe-match';
+  m.placeholder = 'Team / match e.g. Sirius vs AIK';
+  m.value = match;
+  const line = document.createElement('div');
+  line.className = 'pe-line';
+  const sl = document.createElement('input');
+  sl.className = 'form-input pe-sel';
+  sl.placeholder = 'Selection e.g. GG';
+  sl.setAttribute('list','selOptions');
+  sl.value = selection;
+  const del = document.createElement('button');
+  del.type = 'button';
+  del.className = 'pe-del';
+  del.textContent = '✕';
+  del.setAttribute('aria-label','Remove pick');
+  del.onclick = ()=> row.remove();
+  line.append(sl, del);
+  row.append(m, line);
+  document.getElementById('picksBuilder').appendChild(row);
+};
+
 window.save = async()=>{
+  const isSingle = document.getElementById('marketInput').value === 'Correct Score';
+  const picks = [];
+  if(!isSingle){
+    document.querySelectorAll('#picksBuilder .pick-edit').forEach(r=>{
+      const mt = r.querySelector('.pe-match').value.trim();
+      const sl = r.querySelector('.pe-sel').value.trim();
+      if(mt && sl) picks.push({match:mt, selection:sl});
+    });
+    if(!picks.length){
+      alert('Add at least one pick (match + selection).');
+      return;
+    }
+  }
   const matchData = {
     country: document.getElementById('countryInput').value.trim(),
     league: document.getElementById('leagueInput').value.trim(),
-    home: document.getElementById('homeInput').value.trim(),
-    away: document.getElementById('awayInput').value.trim(),
+    home: isSingle ? document.getElementById('homeInput').value.trim() : '',
+    away: isSingle ? document.getElementById('awayInput').value.trim() : '',
     market: document.getElementById('marketInput').value,
-    prediction: document.getElementById('predictionInput').value.trim(),
+    prediction: isSingle
+      ? document.getElementById('predictionInput').value.trim()
+      : picks.map(x => `${x.match} ${x.selection}`).join(' | '),
+    picks: isSingle ? null : picks,
     date: document.getElementById('dateInput').value.trim(),
     time: document.getElementById('timeInput').value.trim()
   };
@@ -937,4 +1070,4 @@ loadVipConfig();
 </script>
 
 </body>
-</html>
+   </html>
